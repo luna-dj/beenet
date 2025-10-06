@@ -1,0 +1,13 @@
+services:
+  beenet:
+    image: ghcr.io/luna-dj/beenet:latest
+    container_name: beenet-server
+    ports:
+      - "8335:8335"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=8335
+    # Optional: add volume for persistent logs if needed
+    # volumes:
+    #   - ./logs:/app/logs

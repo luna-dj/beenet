@@ -56,7 +56,15 @@ var VERS = '1.0.0';
 
 // electron window
 // yea i hate electron too but its easy to distro
-var { app, BrowserWindow } = require('electron')
+var app, BrowserWindow;
+try {
+  var electron = require('electron');
+  app = electron.app;
+  BrowserWindow = electron.BrowserWindow;
+} catch(e) {
+  // electron not available (e.g., running in Docker), run in headless mode
+  app = undefined;
+}
 // if electron run window then listen
 if (app != undefined) {
   var win = null
