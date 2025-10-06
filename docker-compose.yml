@@ -1,6 +1,6 @@
 services:
   beenet:
-    build: .
+    image: ghcr.io/luna-dj/beenet:latest
     container_name: beenet-server
     ports:
       - "8335:8335"
